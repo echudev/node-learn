@@ -1,0 +1,17 @@
+{
+  "name": "simple_routes",
+  "version": "1.0.0",
+  "description": "creating simple routes with nodejs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ezequiel Maranda",
+  "license": "ISC",
+  "dependencies": {
+    "http-status-codes": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.7"
+  }
+}
