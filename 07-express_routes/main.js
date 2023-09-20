@@ -1,27 +1,20 @@
 const port = 3000,
   express = require("express"),
-  app = express();
+  app = express(),
+  homeController = require("./controllers/homeController");
 
-// middleware
+// middlewares
 app.use((req, res, next) => {
   console.log(`request made to: ${req.url}`);
   console.log("time: " + Date(Date.now()));
   next();
 });
-
-// route
-app.get("/items/:vegetable", (req, res) => {
-  let veg = req.params.vegetable;
-  res.send(`This is the page for ${veg}`);
-});
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.post("/", (req, res) => {
-  console.log(req.body);
-  console.log(req.query);
-  res.send("POST Successful!");
-});
+
+// routes
+app.get("/items/:vegetable", homeController.sendReqParam);
+app.post("/", homeController.testingBodyParams);
 
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
